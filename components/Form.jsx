@@ -24,10 +24,10 @@ const FormOp2 = () => {
     if (parteDelFormulario > 1) setParteDelFormulario(parteDelFormulario - 1);
   };
 
-  const [nombre, setNombre] = useState('Juan');
-  const [apellido, setApellido] = useState('Perez');
+  const [nombre, setNombre] = useState('John');
+  const [apellido, setApellido] = useState('Doe');
   const [dni, setDni] = useState('23456789');
-  const [email, setEmail] = useState('jp@gmail.com');
+  const [email, setEmail] = useState('jd@gmail.com');
   const [birthday, setBirthday] = useState('');
   const [edad, setEdad] = useState('');
   const [valorUnidad, setValorUnidad] = useState('');
@@ -59,12 +59,50 @@ const FormOp2 = () => {
   useEffect(() => {
     // setIngresosTotales(calcularIngresos( ingresosNetosMensuales, ingresosNetosMensuales2, ingresosNetosMensuales3, vehiculoPropio, vehiculoPropio2, vehiculoPropio3, esSocioDeUnClub, esSocioDeUnClub2, esSocioDeUnClub3));
 
-    const result = calcularTablaAmortizacion( valorPrestamo, tasaAnual, plazoFinanciamiento, saldoDelPrecio, seguroDesempleo, gastosAdministrativos);
+    const result = calcularTablaAmortizacion(
+      valorPrestamo,
+      tasaAnual,
+      plazoFinanciamiento,
+      saldoDelPrecio,
+      seguroDesempleo,
+      gastosAdministrativos
+    );
     setCuotas(result);
     if (result.length > 0) setCuota(result[0]['CUOTA A PAGAR']);
 
-    setIngresosTotales(calcularIngresos( ingresosNetosMensuales, ingresosNetosMensuales2, ingresosNetosMensuales3, vehiculoPropio, vehiculoPropio2, vehiculoPropio3, esSocioDeUnClub, esSocioDeUnClub2, esSocioDeUnClub3));
-  }, [ valorPrestamo, tasaAnual, plazoFinanciamiento, cuota, saldoDelPrecio, seguroDesempleo, gastosAdministrativos, edad, setIngresosTotales, ingresosNetosMensuales, ingresosNetosMensuales2, ingresosNetosMensuales3, vehiculoPropio, vehiculoPropio2, vehiculoPropio3, esSocioDeUnClub, esSocioDeUnClub2, esSocioDeUnClub3]);
+    setIngresosTotales(
+      calcularIngresos(
+        ingresosNetosMensuales,
+        ingresosNetosMensuales2,
+        ingresosNetosMensuales3,
+        vehiculoPropio,
+        vehiculoPropio2,
+        vehiculoPropio3,
+        esSocioDeUnClub,
+        esSocioDeUnClub2,
+        esSocioDeUnClub3
+      )
+    );
+  }, [
+    valorPrestamo,
+    tasaAnual,
+    plazoFinanciamiento,
+    cuota,
+    saldoDelPrecio,
+    seguroDesempleo,
+    gastosAdministrativos,
+    edad,
+    setIngresosTotales,
+    ingresosNetosMensuales,
+    ingresosNetosMensuales2,
+    ingresosNetosMensuales3,
+    vehiculoPropio,
+    vehiculoPropio2,
+    vehiculoPropio3,
+    esSocioDeUnClub,
+    esSocioDeUnClub2,
+    esSocioDeUnClub3,
+  ]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,14 +110,14 @@ const FormOp2 = () => {
 
   const handleExportToExcel = () => {
     const header = {
-      'Nombre': nombre + apellido,
-      'Edad': edad + ' años',
-      'DNI': dni,
-      'Email': email,
-      'FechaDeNacimiento': birthday,
+      Nombre: nombre + apellido,
+      Edad: edad + ' años',
+      DNI: dni,
+      Email: email,
+      FechaDeNacimiento: birthday,
       'Valor De La Unidad': 'USD ' + valorUnidad,
       'Valor Del Prestamo': 'USD ' + valorPrestamo,
-      'PlazoDelFinanciamiento': plazoFinanciamiento + ' meses',
+      PlazoDelFinanciamiento: plazoFinanciamiento + ' meses',
       'Porcentaje del saldo del precio': saldoDelPrecio + ' %',
       'Pocentaje seguro se desempleo': seguroDesempleo + ' %',
       'Pocentaje gastos administrativos': gastosAdministrativos + ' %',
@@ -90,7 +128,7 @@ const FormOp2 = () => {
       return {
         'NRO. DE CUOTA': c['NRO. DE CUOTA'],
         'CAPITAL AMORTIZADO': c['CAPITAL AMORTIZADO'],
-        'INTERÉS': c['INTERÉS'],
+        INTERÉS: c['INTERÉS'],
         'CUOTA PURA': c['CUOTA PURA'],
         'CUOTA A PAGAR': c['CUOTA A PAGAR'],
         'SALDO DEL PRECIO': c['SALDO DEL PRECIO'],
@@ -111,16 +149,16 @@ const FormOp2 = () => {
       {parteDelFormulario === 1 && (
         <div className="flex flex-col w-64">
           <h1 className="text-center font-semibold text-xl m-4 ">
-            Calcular cuotas
+          My Loan Calculator
           </h1>
           {/* <ToggleDetails /> */}
           <section className="flex flex-col md:flex-row justify-center gap-10">
             <details open className="bg-white bg-opacity-30 rounded-lg p-2">
-              <summary className="w-64">Datos personales</summary>
+              <summary className="w-64">Personal information</summary>
               <section className="flex flex-col">
                 <div className="mb-4 ">
                   <label htmlFor="nombre" className="block">
-                    Nombre:
+                    Name:
                   </label>
                   <input
                     type="text"
@@ -133,7 +171,7 @@ const FormOp2 = () => {
 
                 <div className="mb-4">
                   <label htmlFor="apellido" className="block">
-                    Apellido:
+                    Lastname:
                   </label>
                   <input
                     type="text"
@@ -175,7 +213,7 @@ const FormOp2 = () => {
 
               <div className="mb-4">
                 <label htmlFor="birthday" className="block">
-                  Fecha de nacimiento:
+                  Birthday:
                 </label>
                 <input
                   type="date"
@@ -200,17 +238,17 @@ const FormOp2 = () => {
                   htmlFor="edad"
                   className="block w-full border border-gray-300 rounded-md px-3 py-2"
                 >
-                  Edad: {edad}
+                  Age: {edad}
                 </label>
               </div>
             </details>
 
             <details open className="bg-white bg-opacity-30 rounded-lg p-2">
-              <summary className="w-64">Datos del préstamo</summary>
+              <summary className="w-64">Loan Details</summary>
 
               <div className="mb-4">
                 <label htmlFor="valorUnidad" className="block">
-                  Valor de la unidad:
+                  Unit Value:
                 </label>
                 <div className="flex w-full border rounded-md">
                   <input
@@ -228,7 +266,7 @@ const FormOp2 = () => {
 
               <div className="mb-4">
                 <label htmlFor="valorPrestamo" className="block">
-                  Valor del préstamo:
+                  Loan Value:
                 </label>
                 <div className="flex w-full border rounded-md">
                   <input
@@ -253,7 +291,7 @@ const FormOp2 = () => {
 
               <div className="mb-4">
                 <label htmlFor="plazoFinanciamiento" className="block">
-                  Plazo del financiamiento:
+                  Financing Term:
                 </label>
                 <div className="flex w-full border rounded-md">
                   <input
@@ -278,13 +316,13 @@ const FormOp2 = () => {
 
               {calcularEdad(birthday, plazoFinanciamiento) > 70 ? (
                 <div className="border-red-500 border text-center rounded p-2 text-red-600 bg-red-100 w-full">
-                  Exceso en cuotas + edad
+                  Excess in quotas + age
                 </div>
               ) : null}
 
               <div className="mb-4">
                 <label htmlFor="tasaAnual" className="block">
-                  Tasa anual:
+                  Annual Rate:
                 </label>
                 <div className="flex w-full border rounded-md">
                   <input
@@ -302,7 +340,7 @@ const FormOp2 = () => {
 
               <div className="mb-4">
                 <label htmlFor="saldoDelPrecio" className="block">
-                  Saldo del precio:
+                  Life Insurance:
                 </label>
                 <div className="flex w-full border rounded-md">
                   <input
@@ -320,7 +358,7 @@ const FormOp2 = () => {
 
               <div className="mb-4">
                 <label htmlFor="seguroDesempleo" className="block">
-                  Seguro de desempleo
+                  Unemployment Insurance:
                 </label>
                 <div className="flex w-full border rounded-md">
                   <input
@@ -338,7 +376,7 @@ const FormOp2 = () => {
 
               <div className="mb-4">
                 <label htmlFor="gastosAdministrativos" className="block">
-                  Gastos administrativos
+                  Administrative Expenses:
                 </label>
                 <div className="flex w-full border rounded-md">
                   <input
@@ -384,23 +422,26 @@ const FormOp2 = () => {
 
       {parteDelFormulario === 2 && (
         <div className="flex flex-col w-64">
-        <h1 className="text-center font-semibold text-xl m-4">
-          Ingresos mensuales
-        </h1>
+          <h1 className="text-center font-semibold text-xl m-4">
+            Monthly Income:
+          </h1>
 
           <div className="border-gray-500 border text-center rounded p-2 text-gray-600 bg-gray-100 w-full">
-            Ingresos totales: {ingresosTotales} USD
+            Total Revenue: {ingresosTotales} USD
           </div>
           {/* <ToggleDetails /> */}
           <div className="flex flex-col lg:flex-row justify-around place-items-start w-64 lg:gap-4 mt-10 top-0">
-            <details open className="bg-white bg-opacity-30 rounded-lg self-center p-2">
-              <summary className="w-64">Propietario 1</summary>
+            <details
+              open
+              className="bg-white bg-opacity-30 rounded-lg self-center p-2"
+            >
+              <summary className="w-64">First Owner</summary>
               <section className="flex flex-col items-center m-1">
                 {/* <div className=""> */}
-                  <label htmlFor="ingresosNetosMensuales" className="block">
-                    Ingresos netos mensuales:
-                  </label>
-                  
+                <label htmlFor="ingresosNetosMensuales" className="block">
+                  Monthly Net Income:
+                </label>
+
                 <div className="mb-4 border rounded-md">
                   <input
                     type="number"
@@ -427,8 +468,11 @@ const FormOp2 = () => {
                     <option value="2">2</option>
                     <option value="3">3</option>
                   </select>
-                  <label htmlFor="vehiculoPropio" className="ml-4 block text-sm text-gray-900">
-                    Cantidad de vehículos propios (-150 USD c/u):
+                  <label
+                    htmlFor="vehiculoPropio"
+                    className="ml-4 block text-sm text-gray-900"
+                  >
+                    Number of own vehicles (-150 USD each):
                   </label>
                 </div>
 
@@ -446,21 +490,24 @@ const FormOp2 = () => {
                     htmlFor="esSocioDeUnClub"
                     className="ml-2 block text-sm text-gray-900"
                   >
-                    Es socio de un club (-100 USD)
+                    Is a member of a club (-100 USD):
                   </label>
                 </div>
               </section>
             </details>
             <br />
 
-            <details open className="bg-white bg-opacity-30 rounded-lg self-center p-2">
-              <summary className="w-64">Propietario 2</summary>
+            <details
+              open
+              className="bg-white bg-opacity-30 rounded-lg self-center p-2"
+            >
+              <summary className="w-64">Second Owner</summary>
               <section className="flex flex-col items-center m-1">
                 {/* <div className=""> */}
-                  <label htmlFor="ingresosNetosMensuales2" className="block">
-                    Ingresos netos mensuales:
-                  </label>
-                  
+                <label htmlFor="ingresosNetosMensuales2" className="block">
+                  Monthly Net Income:
+                </label>
+
                 <div className="mb-4 border rounded-md">
                   <input
                     type="number"
@@ -487,8 +534,11 @@ const FormOp2 = () => {
                     <option value="2">2</option>
                     <option value="3">3</option>
                   </select>
-                  <label htmlFor="vehiculoPropio2" className="ml-4 block text-sm text-gray-900">
-                    Cantidad de vehículos propios (-150 USD c/u):
+                  <label
+                    htmlFor="vehiculoPropio2"
+                    className="ml-4 block text-sm text-gray-900"
+                  >
+                    Number of own vehicles (-150 USD each):{' '}
                   </label>
                 </div>
 
@@ -506,21 +556,24 @@ const FormOp2 = () => {
                     htmlFor="esSocioDeUnClub2"
                     className="ml-2 block text-sm text-gray-900"
                   >
-                    Es socio de un club (-100 USD)
+                    Is a member of a club (-100 USD):
                   </label>
                 </div>
               </section>
             </details>
             <br />
 
-            <details open className="bg-white bg-opacity-30 rounded-lg self-center p-2">
-              <summary className="w-64">Propietario 3</summary>
+            <details
+              open
+              className="bg-white bg-opacity-30 rounded-lg self-center p-2"
+            >
+              <summary className="w-64">Third Owner</summary>
               <section className="flex flex-col items-center m-1">
                 {/* <div className=""> */}
-                  <label htmlFor="ingresosNetosMensuales3" className="block">
-                    Ingresos netos mensuales:
-                  </label>
-                  
+                <label htmlFor="ingresosNetosMensuales3" className="block">
+                  Monthly Net Income:
+                </label>
+
                 <div className="mb-4 border rounded-md">
                   <input
                     type="number"
@@ -547,8 +600,11 @@ const FormOp2 = () => {
                     <option value="2">2</option>
                     <option value="3">3</option>
                   </select>
-                  <label htmlFor="vehiculoPropio3" className="ml-4 block text-sm text-gray-900">
-                    Cantidad de vehículos propios (-150 USD c/u):
+                  <label
+                    htmlFor="vehiculoPropio3"
+                    className="ml-4 block text-sm text-gray-900"
+                  >
+                    Number of own vehicles (-150 USD each):{' '}
                   </label>
                 </div>
 
@@ -566,7 +622,7 @@ const FormOp2 = () => {
                     htmlFor="esSocioDeUnClub3"
                     className="ml-2 block text-sm text-gray-900"
                   >
-                    Es socio de un club (-100 USD)
+                    Is a member of a club (-100 USD):
                   </label>
                 </div>
               </section>
@@ -582,7 +638,6 @@ const FormOp2 = () => {
       {/* //////////// */}
 
       {parteDelFormulario === 3 && (
-       
         <div className="flex flex-col w-full items-center max-h-screen md:px-10 pb-10">
           <h1 className="text-center font-semibold text-xl m-4 w-32">
             {nombre} {apellido}
@@ -590,70 +645,105 @@ const FormOp2 = () => {
           <section className="bg-white bg-opacity-30 rounded-lg self-center p-1 w-68 lg:w-full">
             <ul className="flex flex-col lg:flex-row justify-evenly">
               <div>
-                <li>Edad: {edad} años </li>
-                <li>Valor de la unidad: USD {valorUnidad}</li>
-                <li>Valor del préstamo: USD {valorPrestamo}</li>
-                <li>Plazo del financiamiento: {plazoFinanciamiento} meses</li>
+                <li>Age: {edad} years old </li>
+                <li>Unit Value: USD {valorUnidad}</li>
+                <li>Loan Value: USD {valorPrestamo}</li>
+                <li>Financing Term: {plazoFinanciamiento} months</li>
               </div>
               <div>
-                <li>Saldo del precio: {saldoDelPrecio}%</li>
-                <li>Seguro de desempleo: {seguroDesempleo}%</li>
-                <li>Gastos administrativos: {gastosAdministrativos}%</li>
-                <li>Total ingresos mensuales: USD {ingresosTotales}</li>
+                <li>Life Insurance: {saldoDelPrecio}%</li>
+                <li>Unemployment Insurance: {seguroDesempleo}%</li>
+                <li>Administrative Expenses: {gastosAdministrativos}%</li>
+                <li>Total Monthly Income: USD {ingresosTotales}</li>
               </div>
             </ul>
           </section>
 
           {ingresosTotales < cuota ? (
             <div className="border-red-500 border rounded p-6 text-red-600 bg-red-100 w-fit absolute top-1/3">
-              Ingresos insuficientes. Diferencia: {cuota - ingresosTotales}
+              Insufficient income. Difference: {cuota - ingresosTotales}
             </div>
           ) : (
-          <section className="mt-2 overflow-y-auto overflow-x-auto w-72 lg:w-full rounded-md">
-            <table className="table-auto w-full">
-              <thead>
-                <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal sticky top-0">
-                  <th className="py-3 px-4 text-right text-xs">Nº DE CUOTA</th>
-                  <th className="py-3 px-4 text-right text-xs">CAPITAL AMORTIZADO</th>
-                  <th className="py-3 px-4 text-right text-xs">INTERÉS</th>
-                  <th className="py-3 px-4 text-right text-xs">CUOTA PURA</th>
-                  <th className="py-3 px-4 text-right text-xs">CUOTA A PAGAR</th>
-                  <th className="py-3 px-4 text-right text-xs">SALDO DEL PRECIO</th>
-                  <th className="py-3 px-4 text-right text-xs">SEGURO DE DESEMPLEO</th>
-                  <th className="py-3 px-4 text-right text-xs">GASTOS ADMIN</th>
-                  <th className="py-3 px-4 text-right text-xs">CAPITAL REMANENTE</th>
-                </tr>
-              </thead>
-
-              <tbody className="text-gray-900 text-sm font-light bg-white bg-opacity-50">
-                {cuotas.map((c) => (
-                  <tr
-                    className="border-b border-gray-500 hover:bg-gray-100"
-                    key={c['NRO. DE CUOTA']}
-                  >
-                    <td className="py-3 px-4 text-center">{c['NRO. DE CUOTA']}</td>
-                    <td className="py-3 px-4 text-center">{c['CAPITAL AMORTIZADO']}</td>
-                    <td className="py-3 px-4 text-center">{c['INTERÉS']}</td>
-                    <td className="py-3 px-4 text-center">{c['CUOTA PURA']}</td>
-                    <td className="py-3 px-4 text-center border-r border-gray-500">{c['CUOTA A PAGAR']}</td>
-                    <td className="py-3 px-4 text-center">{c['SALDO DEL PRECIO']}</td>
-                    <td className="py-3 px-4 text-center">{c['SEGURO DE DESEMPLEO']}</td>
-                    <td className="py-3 px-4 text-center">{c['GASTOS ADMINISTRATIVOS']}</td>
-                    <td className="py-3 px-4 text-center border-l-4 border-double border-gray-500">{c['CAPITAL REMANENTE']}</td>
+            <section className="mt-2 overflow-y-auto overflow-x-auto w-72 lg:w-full rounded-md">
+              <table className="table-auto w-full">
+                <thead>
+                  <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal sticky top-0">
+                    <th className="py-3 px-4 text-right text-xs">
+                    FEE NO.
+                    </th>
+                    <th className="py-3 px-4 text-right text-xs">
+                    AMORTIZED CAPITAL
+                    </th>
+                    <th className="py-3 px-4 text-right text-xs">INTEREST</th>
+                    <th className="py-3 px-4 text-right text-xs">PURE FEE</th>
+                    <th className="py-3 px-4 text-right text-xs">
+                      FEE TO PAY
+                    </th>
+                    <th className="py-3 px-4 text-right text-xs">
+                      LIFE INSURANCE
+                    </th>
+                    <th className="py-3 px-4 text-right text-xs">
+                      UNEMPLOYMENT INSURANCE
+                    </th>
+                    <th className="py-3 px-4 text-right text-xs">
+                      ADMIN EXPENCES
+                    </th>
+                    <th className="py-3 px-4 text-right text-xs">
+                      REMAINING CAPITAL
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
+                </thead>
+
+                <tbody className="text-gray-900 text-sm font-light bg-white bg-opacity-50">
+                  {cuotas.map((c) => (
+                    <tr
+                      className="border-b border-gray-500 hover:bg-gray-100"
+                      key={c['NRO. DE CUOTA']}
+                    >
+                      <td className="py-3 px-4 text-center">
+                        {c['NRO. DE CUOTA']}
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        {c['CAPITAL AMORTIZADO']}
+                      </td>
+                      <td className="py-3 px-4 text-center">{c['INTERÉS']}</td>
+                      <td className="py-3 px-4 text-center">
+                        {c['CUOTA PURA']}
+                      </td>
+                      <td className="py-3 px-4 text-center border-r border-gray-500">
+                        {c['CUOTA A PAGAR']}
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        {c['SALDO DEL PRECIO']}
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        {c['SEGURO DE DESEMPLEO']}
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        {c['GASTOS ADMINISTRATIVOS']}
+                      </td>
+                      <td className="py-3 px-4 text-center border-l-4 border-double border-gray-500">
+                        {c['CAPITAL REMANENTE']}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
           )}
 
           <button
-            disabled={calcularEdad(currentDate, plazoFinanciamiento) || ingresosTotales < cuota}
+            disabled={
+              calcularEdad(currentDate, plazoFinanciamiento) ||
+              ingresosTotales < cuota
+            }
             variant="contained"
             onClick={handleExportToExcel}
-            className={ingresosTotales < cuota 
-              ? "fixed right-4 top-4 h-14 w-14 md:right-40 md:bottom-40 bg-gray-500 text-black py-2 px-3 rounded-md md:w-32 flex justify-evenly items-center opacity-30" 
-              : "fixed right-4 top-4 h-14 w-14 md:right-40 md:bottom-40 bg-blue-500 text-white py-2 px-3 rounded-md md:w-32 flex justify-evenly items-center opacity-50 hover:opacity-100 transition-opacity duration-300" }
+            className={
+              ingresosTotales < cuota
+                ? 'fixed right-4 top-4 h-14 w-14 md:right-40 md:bottom-40 bg-gray-500 text-black py-2 px-3 rounded-md md:w-32 flex justify-evenly items-center opacity-30'
+                : 'fixed right-4 top-4 h-14 w-14 md:right-40 md:bottom-40 bg-blue-500 text-white py-2 px-3 rounded-md md:w-32 flex justify-evenly items-center opacity-50 hover:opacity-100 transition-opacity duration-300'
+            }
           >
             <span className="hidden md:block">Excel </span>
             <div className="bg-white rounded-md p-1">
@@ -677,7 +767,7 @@ const FormOp2 = () => {
       {parteDelFormulario < 3 && (
         <NextButton
           handleNext={handleNext}
-          disabled={calcularEdad(birthday, plazoFinanciamiento) > 70 }
+          disabled={calcularEdad(birthday, plazoFinanciamiento) > 70}
         />
       )}
     </form>

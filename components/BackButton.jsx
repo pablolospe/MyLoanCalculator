@@ -9,7 +9,7 @@ function BackButton({ handlePrevious }) {
     >
       {/* &#8592;  */}
       <Image src="/images/arrow-left.svg" alt="Back" width={30} height={30} />
-      <span className="hidden md:block">Anterior</span>
+      <span className="hidden md:block">Back</span>
     </button>
   );
 }
