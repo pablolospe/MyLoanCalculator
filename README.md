@@ -1,3 +1,35 @@
+<div align="center">
+
+![calculator-icon](</app/favicon.ico>)
+#  💰 My Loan Calculator 💰
+
+</div>
+
+My Loan Calculator is a meticulously crafted web application, built to perform sophisticated loan installment calculations using the French amortization system. 
+
+
+---
+
+## 🏦 Key Features
+
+- **Personalized Inputs**: Enables users to enter key personal financial parameters including age, individual income, and monthly expenses.
+
+- **Comprehensive Scope**: Precisely incorporates additional financial components such as life and unemployment insurance, and carefully quantifies associated administrative costs.
+
+- **Detailed Reports**: Generates a downloadable Excel file that provides a comprehensive report detailing your unique loan installment computations and personalized financial information.
+
+- **Responsive Design**: Designed with a responsive layout for seamless use on mobile devices.
+
+---
+
+<!-- ## 📈 Summary of Features
+
+_Provide the list of features here._
+
+--- -->
+
+## 🚀 Getting Started
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -34,3 +66,13 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+---
+
+<!-- ## 📚 Documentation
+
+For comprehensive documentation, please visit [docs.link](your-documentation-link).
+---
+ -->
+
+Built with 💙 by [Pablo X Lospennato](https://www.linkedin.com/in/pablo-xavier-lospennato-1065b4a2/) | 2023
