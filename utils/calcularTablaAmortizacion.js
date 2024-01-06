@@ -50,20 +50,20 @@ export function calcularTablaAmortizacion(
     ).toFixed(2);
 
     tabla.push({
-      'NRO. DE CUOTA': i + 1,
-      'CUOTA PURA': cuota,
-      'CUOTA A PAGAR': (
+      'FEE NO.': i + 1,
+      'PURE FEE': cuota,
+      'FEE TO PAY': (
         parseFloat(cuota) +
         parseFloat(saldoDelPrecioCosto) +
         parseFloat(seguroDesempleoCosto) +
         parseFloat(gastosAdministrativosCosto)
       ).toFixed(2),
-      INTERÉS: parseFloat(interes.toFixed(2)),
-      'CAPITAL AMORTIZADO': parseFloat(capitalAmortizado.toFixed(2)),
-      'CAPITAL REMANENTE': parseFloat(saldo.toFixed(2)),
-      'SALDO DEL PRECIO': saldoDelPrecioCosto,
-      'SEGURO DE DESEMPLEO': seguroDesempleoCosto,
-      'GASTOS ADMINISTRATIVOS': gastosAdministrativosCosto,
+      INTEREST: parseFloat(interes.toFixed(2)),
+      'AMORTIZED CAPITAL': parseFloat(capitalAmortizado.toFixed(2)),
+      'REMAINING CAPITAL': parseFloat(saldo.toFixed(2)),
+      'LIFE INSURANCE': saldoDelPrecioCosto,
+      'UNEMPLOYMENT INSURANCE': seguroDesempleoCosto,
+      'ADMIN EXPENCES': gastosAdministrativosCosto,
     });
   }
 

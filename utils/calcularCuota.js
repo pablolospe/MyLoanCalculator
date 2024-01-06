@@ -9,28 +9,6 @@ export function calcularCuota(valorPrestamo, tasaAnual, plazoFinanciamiento) {
   return parseFloat(result).toFixed(2);
 }
 
-// export function calcularCuota(P, r, n) {
-//   r = r / 100 / 12; // Convertir la tasa anual a una tasa mensual en decimal
-//    const result = P * (r * Math.pow((1 + r), n)) / (Math.pow((1 + r), n) - 1);
-//    return result.toFixed(2)
-// }
-
-
-// export function calcularCuota(P, r, N) {
-//   const result = (P * r * Math.pow(1 + r, N)) / (Math.pow(1 + r, N) - 1);
-//   return result.toFixed(2)
-// }
-
-// // Ejemplo de uso:
-// // const P = 10000;  // Monto del préstamo
-// // const N = 12;     // Número de períodos (mensual)
-
-// const tasaAnual = 0.05;   // Tasa de interés anual (5%)
-// const tasaPeriodica = tasaAnual / 12;  // Divide la tasa anual por el número de meses en un año
-// // const cuota = calcularCuota(P, tasaPeriodica, N);
-// // console.log("La cuota mensual es: " + cuota);
-
-
 // C = P * (r*(1+r)^n) / ((1+r)^n - 1)
 
 // donde:

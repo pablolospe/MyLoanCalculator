@@ -68,7 +68,7 @@ const FormOp2 = () => {
       gastosAdministrativos
     );
     setCuotas(result);
-    if (result.length > 0) setCuota(result[0]['CUOTA A PAGAR']);
+    if (result.length > 0) setCuota(result[0]['FEE TO PAY']);
 
     setIngresosTotales(
       calcularIngresos(
@@ -110,31 +110,31 @@ const FormOp2 = () => {
 
   const handleExportToExcel = () => {
     const header = {
-      Nombre: nombre + apellido,
-      Edad: edad + ' años',
+      Name: nombre + apellido,
+      Age: edad + ' years old',
       DNI: dni,
       Email: email,
-      FechaDeNacimiento: birthday,
-      'Valor De La Unidad': 'USD ' + valorUnidad,
-      'Valor Del Prestamo': 'USD ' + valorPrestamo,
-      PlazoDelFinanciamiento: plazoFinanciamiento + ' meses',
-      'Porcentaje del saldo del precio': saldoDelPrecio + ' %',
-      'Pocentaje seguro se desempleo': seguroDesempleo + ' %',
-      'Pocentaje gastos administrativos': gastosAdministrativos + ' %',
-      'Total ingresos mensuales': 'USD ' + ingresosTotales,
+      Birthday: birthday,
+      'Unit Value': 'USD ' + valorUnidad,
+      'Loan Value': 'USD ' + valorPrestamo,
+      'Financing Term': plazoFinanciamiento + ' months',
+      'Life insurance percentage': saldoDelPrecio + ' %',
+      'Unemployment insurance percentage': seguroDesempleo + ' %',
+      'Administrative expenses percentage': gastosAdministrativos + ' %',
+      'Total monthly income': 'USD ' + ingresosTotales,
     };
 
     const csvData = cuotas.map((c) => {
       return {
-        'NRO. DE CUOTA': c['NRO. DE CUOTA'],
-        'CAPITAL AMORTIZADO': c['CAPITAL AMORTIZADO'],
-        INTERÉS: c['INTERÉS'],
-        'CUOTA PURA': c['CUOTA PURA'],
-        'CUOTA A PAGAR': c['CUOTA A PAGAR'],
-        'SALDO DEL PRECIO': c['SALDO DEL PRECIO'],
-        'SEGURO DE DESEMPLEO': c['SEGURO DE DESEMPLEO'],
-        'GASTOS ADMINISTRATIVOS': c['GASTOS ADMINISTRATIVOS'],
-        'CAPITAL REMANENTE': c['CAPITAL REMANENTE'],
+        'FEE NO.': c['FEE NO.'],
+        'AMORTIZED CAPITAL': c['AMORTIZED CAPITAL'],
+        INTEREST: c['INTEREST'],
+        'PURE FEE': c['PURE FEE'],
+        'FEE TO PAY': c['FEE TO PAY'],
+        'LIFE INSURANCE': c['LIFE INSURANCE'],
+        'UNEMPLOYMENT INSURANCE': c['UNEMPLOYMENT INSURANCE'],
+        'ADMIN EXPENCES': c['ADMIN EXPENCES'],
+        'REMAINING CAPITAL': c['REMAINING CAPITAL'],
       };
     });
     // exportToExcel(csvData, header, 'cuotas hipotecarias');
@@ -393,26 +393,6 @@ const FormOp2 = () => {
               </div>
             </details>
           </section>
-          {/* 
-          <button
-            type="reset"
-            onClick={() => (
-              setNombre(''),
-              setApellido(''),
-              setDni(''),
-              setEmail(''),
-              setBirthday(''),
-              setEdad(''),
-              setValorUnidad(''),
-              setValorPrestamo(''),
-              setPlazoFinanciamiento(''),
-              setSaldoDelPrecio(''),
-              setSeguroDesempleo('')
-            )}
-            className="bg-blue-500 text-white py-2 px-4 mt-1 rounded-md self-center"
-          >
-            Refrescar
-          </button> */}
         </div>
       )}
 
@@ -698,32 +678,32 @@ const FormOp2 = () => {
                   {cuotas.map((c) => (
                     <tr
                       className="border-b border-gray-500 hover:bg-gray-100"
-                      key={c['NRO. DE CUOTA']}
+                      key={c['FEE NO.']}
                     >
                       <td className="py-3 px-4 text-center">
-                        {c['NRO. DE CUOTA']}
+                        {c['FEE NO.']}
                       </td>
                       <td className="py-3 px-4 text-center">
-                        {c['CAPITAL AMORTIZADO']}
+                        {c['AMORTIZED CAPITAL']}
                       </td>
-                      <td className="py-3 px-4 text-center">{c['INTERÉS']}</td>
+                      <td className="py-3 px-4 text-center">{c['INTEREST']}</td>
                       <td className="py-3 px-4 text-center">
-                        {c['CUOTA PURA']}
+                        {c['PURE FEE']}
                       </td>
                       <td className="py-3 px-4 text-center border-r border-gray-500">
-                        {c['CUOTA A PAGAR']}
+                        {c['FEE TO PAY']}
                       </td>
                       <td className="py-3 px-4 text-center">
-                        {c['SALDO DEL PRECIO']}
+                        {c['LIFE INSURANCE']}
                       </td>
                       <td className="py-3 px-4 text-center">
-                        {c['SEGURO DE DESEMPLEO']}
+                        {c['UNEMPLOYMENT INSURANCE']}
                       </td>
                       <td className="py-3 px-4 text-center">
-                        {c['GASTOS ADMINISTRATIVOS']}
+                        {c['ADMIN EXPENCES']}
                       </td>
                       <td className="py-3 px-4 text-center border-l-4 border-double border-gray-500">
-                        {c['CAPITAL REMANENTE']}
+                        {c['REMAINING CAPITAL']}
                       </td>
                     </tr>
                   ))}
