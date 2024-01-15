@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "file-saver": "^2.0.5",
+    "next": "13.5.6",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.6",
-    "xlsx": "^0.18.5",
-    "file-saver": "^2.0.5"
+    "react-spring": "^9.7.3",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "autoprefixer": "^10",

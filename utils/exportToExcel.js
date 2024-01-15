@@ -9,7 +9,7 @@ export const exportToExcel = (csvData, header, fileName) => {
     const newFileName = `${fileName}_${formattedDate}${fileExtension}`;
     // const ws = XLSX.utils.json_to_sheet(csvData);
     // const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
-    const headerData = Object.entries(header).map(([key, value]) => ({ 'Field': key, 'Value': value }));
+    const headerData = Object.entries(header).map(([key, value]) => ({ 'Campo': key, 'Valor': value }));
 
   // Crea las hojas de trabajo
     const ws1 = XLSX.utils.json_to_sheet(headerData);
@@ -17,8 +17,8 @@ export const exportToExcel = (csvData, header, fileName) => {
 
     // Crea un nuevo libro de trabajo y añade las hojas de trabajo
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws1, 'Header');
-    XLSX.utils.book_append_sheet(wb, ws2, 'Dues');
+    XLSX.utils.book_append_sheet(wb, ws1, 'Encabezado');
+    XLSX.utils.book_append_sheet(wb, ws2, 'Cuotas');
 
     // Escribir el libro de trabajo en un buffer
     const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });

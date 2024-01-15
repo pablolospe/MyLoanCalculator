@@ -1,4 +1,4 @@
-// components/ToggleDetails.js
+// components/ToggleDetails.js Funcion para matener abierto solo un Dialog
 import { useEffect } from 'react';
 
 const ToggleDetails = () => {
